@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,9 +15,12 @@
 */
 
 Auth::routes();
-Route::get('/', function () {
-    return view('welcome');
+
+Route::redirect('/', '/dashboard', 301);
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 });
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+

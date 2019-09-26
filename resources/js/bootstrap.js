@@ -11,6 +11,9 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    require('moment');
+    require('tooltip.js');
+    require('jquery.nicescroll');
 } catch (e) {}
 
 /**
