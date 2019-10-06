@@ -1,0 +1,25 @@
+language: php
+php:
+  - 7.2
+
+git:
+  depth: 5
+
+services:
+  - mysql
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+before_script:
+  - cp .env.example .env
+  - sudo mysql -e 'CREATE DATABASE laravel;'
+  - composer install --no-interaction
+  - npm install
+  - npm run production
+  - php artisan key:generate
+  - php artisan migrate --no-interaction -vvv
+
+script:
+  - vendor/bin/phpunit
