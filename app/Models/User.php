@@ -36,4 +36,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function hasRole( ... $roles ) {
+        foreach ($roles as $role) {
+           if ($this->roles->contains('slug', $role)) {
+              return true;
+           }
+        }
+        return false;
+     }
 }
