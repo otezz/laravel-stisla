@@ -21,7 +21,7 @@
         "jquery-sparkline": "^2.4.0",
         "jquery.nicescroll": "^3.7.6",
         "laravel-mix": "^4.0.7",
-        "lodash": "^4.17.13",
+        "lodash": "^4.17.21",
         "moment": "^2.24.0",
         "owl.carousel": "^2.3.4",
         "popper.js": "^1.12",
